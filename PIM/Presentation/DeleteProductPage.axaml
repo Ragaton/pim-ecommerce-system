@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PIM.DeleteProductPage">
+
+    <Grid RowDefinitions="160,*">
+        
+        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="3"></Border>
+        <StackPanel Margin="20" Spacing="12">
+            <TextBlock Text="⚠️ Are you sure?" FontSize="20"/>
+            <TextBlock x:Name="WarningText" TextWrapping="Wrap"/>
+            <Button Content="Confirm Delete" Click="OnDeleteClick"/>
+            <TextBlock x:Name="StatusText" Foreground="Gray"/>
+        </StackPanel>
+        
+    </Grid>
+    
+</UserControl>

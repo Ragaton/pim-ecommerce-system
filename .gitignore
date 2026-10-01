@@ -1,0 +1,89 @@
+# =========================================================
+# JetBrains Rider / IntelliJ IDEA
+# =========================================================
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Rider user-specific settings
+*.DotSettings.user
+
+# =========================================================
+# Visual Studio
+# =========================================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================================================
+# VS Code
+# =========================================================
+.vscode/
+
+# =========================================================
+# .NET / C# build output
+# =========================================================
+**/bin/
+**/obj/
+
+# Debug / Release / architecture-specific output
+**/[Dd]ebug/
+**/[Rr]elease/
+**/[Dd]ebugPublic/
+**/[Rr]eleases/
+**/x64/
+**/x86/
+**/ARM/
+**/ARM64/
+**/bld/
+
+# Test output / coverage
+TestResults/
+**/TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# =========================================================
+# Generated / temporary files
+# =========================================================
+exportToHTML/
+PIM/Log/
+
+*.tmp
+*.temp
+*.cache
+
+# =========================================================
+# Local environment / secrets
+# =========================================================
+.env
+.env.*
+!.env.example
+
+appsettings.Local.json
+appsettings.*.local.json
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================================================
+# OS-generated files
+# =========================================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================================================
+# Miscellaneous
+# =========================================================
+_ReSharper*/
+*.ncb
+*.sbr
+*.scc
+*.vspx

@@ -1,0 +1,35 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PIM.ExportProductPage">
+
+    <Border BorderBrush="Gray" BorderThickness="3">
+        <StackPanel Margin="20" Spacing="8">
+            <TextBlock Text="Export Product" FontSize="24"/>
+
+            <!-- Mode selector -->
+            <TextBlock Text="Export mode"/>
+            <RadioButton x:Name="ModeVariant" Content="Export by Variant ID" GroupName="ExportMode" IsChecked="True" Click="OnModeChanged"/>
+            <RadioButton x:Name="ModeCategory" Content="Export by Category"   GroupName="ExportMode" IsChecked="False" Click="OnModeChanged"/>
+
+            <!-- Variant ID input — shown when mode is Variant -->
+            <StackPanel x:Name="VariantPanel" Spacing="8">
+                <TextBlock Text="ID"/>
+                <TextBox x:Name="VariantIdBox" Watermark="e.g. 42"/>
+            </StackPanel>
+
+            <!-- Category dropdown — hidden until mode is Category -->
+            <StackPanel x:Name="CategoryPanel" IsVisible="False" Spacing="8">
+                <TextBlock Text="Category"/>
+                <ComboBox x:Name="CategoryBox" Width="300"/>
+            </StackPanel>
+
+            <Button Content="Export to JSON" Click="OnExportClick"/>
+
+            <TextBlock x:Name="StatusText" Foreground="Gray"/>
+        </StackPanel>
+    </Border>
+
+</UserControl>

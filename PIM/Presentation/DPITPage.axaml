@@ -1,0 +1,61 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:PIM.Data"
+             xmlns:presentation="using:PIM.Presentation"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PIM.Presentation.DPITPage">
+    
+    <Grid RowDefinitions="Auto,Auto,*">
+        
+        <!--Top of Grid: Buttons -->
+        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="3">
+            <Grid Margin="5" ColumnDefinitions="*,*">
+                <Grid.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                        <Setter Property="MinWidth" Value="0"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                    </Style>
+                </Grid.Styles>
+                <Button Grid.Column="0" Name="Delete" Click="OnDeleteClick"> Delete </Button>
+                <Button Grid.Column="1" Name="Activate" Click="OnActivateClick"> Activate </Button>
+            </Grid>
+        </Border>
+        
+        <!--Middle of Grid: Search Bar -->
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="3">
+            <TextBox Margin="5" Watermark="Search" TextChanged="OnSearchChanged"></TextBox>
+        </Border>
+        
+        <!--Bottom of Grid: Table -->
+        <Border Grid.Row="2" BorderBrush="Gray" BorderThickness="3">
+            <!--DataGrid is the Table itself. 
+                
+                {ItemSource = Binding Products} says that in this DataGrid, the information in the Rows are going to be based on the Product Class.
+                
+                x:DataType:"local:PITPage" Says that the information inserted into the rows will come from the Products created in the PITPage Class.
+                
+                Binding="{Binding Name, DataType=local:Product}": Binding Name says that in this column, the information will be the Product Class Name variable. 
+                Now as for the DataType=local:Product part^^, when you write Binding Name, it doesn't know "who's Name it is", so you use DataType=local:Product,
+                to specify that "it is the Product's Name".
+                -->
+            <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False" x:DataType="presentation:DPITPage">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Binding="{Binding IsSelected}" Header="" Width="40"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id, DataType=local:Product}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name, DataType=local:Product}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category, DataType=local:Product}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Actual Price" Binding="{Binding ActualPrice, DataType=local:Product}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Base Price" Binding="{Binding BasePrice, DataType=local:Product}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Base Cost" Binding="{Binding Cost, DataType=local:Product}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Details" Binding="{Binding Details, DataType=local:Product}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        
+    </Grid>
+</UserControl>
+
+<!-- <Button Content="Reload" Click="OnLoadClick"/> -->
